@@ -9,5 +9,4 @@ public interface MoviesMVPView {
 
     void setVideoList(List<Movies> moviesList);
 
-    void setTopRatedList(List<Movies> movies);
 }

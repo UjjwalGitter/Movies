@@ -37,7 +37,7 @@ public class NewVideosAdapter extends RecyclerView.Adapter<NewVideosAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_row_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.vertical_item, parent, false);
         return new ViewHolder(view);
     }
 

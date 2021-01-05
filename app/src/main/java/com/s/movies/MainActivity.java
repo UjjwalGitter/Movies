@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.s.movies.adapter.NewReleaseAdapter;
 import com.s.movies.adapter.NewVideosAdapter;
 import com.s.movies.model.Movies;
 
@@ -24,17 +25,13 @@ public class MainActivity extends AppCompatActivity implements MoviesMVPView {
     @BindView(R.id.recyclerViewReleases)
     RecyclerView recyclerViewReleases;
     RecyclerView.LayoutManager layoutManager;
-    @BindView(R.id.recyclerViewTopRated)
-    RecyclerView recyclerViewTopRated;
+    RecyclerView.LayoutManager layoutManager2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle("Movies");
-        toolbar.setTitleTextColor(getResources().getColor(R.color.color_333333));
         presenter = new MoviesMVPPresenterImpl(this, this);
     }
 
@@ -55,17 +52,10 @@ public class MainActivity extends AppCompatActivity implements MoviesMVPView {
 
     @Override
     public void setVideoList(List<Movies> moviesList) {
-        NewVideosAdapter newVideosAdapter = new NewVideosAdapter(this, moviesList);
-        layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recyclerViewVideos.setLayoutManager(layoutManager);
-        recyclerViewVideos.setAdapter(newVideosAdapter);
+        NewReleaseAdapter newReleaseAdapter = new NewReleaseAdapter(this, moviesList);
+        layoutManager2 = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        recyclerViewVideos.setLayoutManager(layoutManager2);
+        recyclerViewVideos.setAdapter(newReleaseAdapter);
     }
 
-    @Override
-    public void setTopRatedList(List<Movies> movies) {
-        NewVideosAdapter newVideosAdapter = new NewVideosAdapter(this, movies);
-        layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recyclerViewTopRated.setLayoutManager(layoutManager);
-        recyclerViewTopRated.setAdapter(newVideosAdapter);
-    }
 }

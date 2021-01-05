@@ -114,7 +114,7 @@ public class MoviesMVPPresenterImpl implements MoviesMVPPresenter, GetMovies.get
             }
         }
 
-        moviesMVPView.setTopRatedList(popularityList);
+        //moviesMVPView.setTopRatedList(popularityList);
 
 
     }
